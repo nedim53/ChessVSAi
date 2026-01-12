@@ -54,4 +54,5 @@ httpServer.listen(PORT, () => {
   console.log(`📡 WebSocket server ready for connections`);
   console.log(`🌐 Frontend URL: ${FRONTEND_URL}`);
   console.log(`🔗 Backend URL: http://localhost:${PORT}`);
+  console.log(`✅ CORS enabled for: ${FRONTEND_URL}`);
 });

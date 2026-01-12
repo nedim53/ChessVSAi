@@ -8,6 +8,11 @@ import PromotionDialog from '../components/PromotionDialog';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
 
+if (typeof window !== 'undefined') {
+  console.log('🔗 Backend URL:', BACKEND_URL);
+  console.log('🌐 Frontend URL:', window.location.origin);
+}
+
 export default function Home() {
   const [game, setGame] = useState(new Chess());
   const [gameId, setGameId] = useState(null);
