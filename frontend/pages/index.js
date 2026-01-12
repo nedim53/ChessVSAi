@@ -6,7 +6,7 @@ import MoveHistory from '../components/MoveHistory';
 import GameControls from '../components/GameControls';
 import PromotionDialog from '../components/PromotionDialog';
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
+const BACKEND_URL = (process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001').replace(/\/$/, '');
 
 if (typeof window !== 'undefined') {
   console.log('🔗 Backend URL:', BACKEND_URL);
