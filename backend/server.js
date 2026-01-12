@@ -30,11 +30,15 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: FRONTEND_URL,
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
 
-app.use(cors());
+app.use(cors({
+  origin: FRONTEND_URL,
+  credentials: true
+}));
 app.use(express.json());
 
 app.use('/games', gameRoutes);
@@ -48,4 +52,6 @@ setupSocketHandlers(io);
 httpServer.listen(PORT, () => {
   console.log(`🚀 Chess backend server running on port ${PORT}`);
   console.log(`📡 WebSocket server ready for connections`);
+  console.log(`🌐 Frontend URL: ${FRONTEND_URL}`);
+  console.log(`🔗 Backend URL: http://localhost:${PORT}`);
 });
